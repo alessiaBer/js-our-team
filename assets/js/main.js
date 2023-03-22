@@ -63,6 +63,6 @@ for (let i = 0; i < team.length; i++) {
     //assegno ad una variabile ogni oggetto dell'array
     const team_member = team[i];
     //stampo in console i dati dell'oggetto
-    console.log(`${team_member.name}, ${team_member.role}, ${team_member.photo}`);
+    console.log(`Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`);
 }
 
