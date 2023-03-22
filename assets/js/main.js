@@ -14,16 +14,7 @@ Trasformare la stringa foto in una immagine effettiva
 BONUS 2:
 Organizzare i singoli membri in card/schede */
 
-/***DATI
-Wayne Barnett	Founder & CEO	wayne-barnett-founder-ceo.jpg
-Angela Caroll	Chief Editor	angela-caroll-chief-editor.jpg
-Walter Gordon	Office Manager	walter-gordon-office-manager.jpg
-Angela Lopez	Social Media Manager	angela-lopez-social-media-manager.jpg
-Scott Estrada	Developer	scott-estrada-developer.jpg
-Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg ***/
 
-//selezione l'elemento container della DOM
-const containerEl = document.querySelector('.container');
 //seleziono l'elemento .row della DOM
 const rowEl = document.querySelector('.row');
 
@@ -61,11 +52,13 @@ const team = [
     }
 ]
 
+iterateArray(team);
+
 //Stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 //Stampare le stesse informazioni su DOM sottoforma di stringhe
 
 //attraverso un for loop ciclo dentro l'array 
-for (let i = 0; i < team.length; i++) {
+/* for (let i = 0; i < team.length; i++) {
     //assegno ad una variabile ogni oggetto dell'array
     const team_member = team[i];
     //stampo in console i dati dell'oggetto
@@ -85,8 +78,46 @@ for (let i = 0; i < team.length; i++) {
     //assegno ad ogni div l'innerHTML con le info dei membri 
     rowEl.innerHTML += colMarkup;
 } 
-
+ */
 //Trasformare la stringa foto in una immagine effettiva
 //Organizzare i singoli membri in card/schede
 
+/*creare due funzioni: 
+una che itera l'array 
+l'altra che si occupa di stampare la scheda in pagina*/
 
+/**
+ * funzione per iterare dentro l'array
+ * @param {array} array 
+ */
+function iterateArray(array) {
+    //attraverso un for loop ciclo dentro l'array 
+    for (let i = 0; i < team.length; i++) {
+        //assegno ad una variabile ogni oggetto dell'array
+        const team_member = team[i];
+        printInDOM(rowEl, team_member);
+    }
+}
+
+
+/**
+ * funzione per stampare le card in pagina
+ * @param {Element} DOMel 
+ * @param {Object} object 
+ */
+function printInDOM(DOMel, object) {
+
+    const colMarkup =  `
+    <div class="col">
+        <div class="card">
+            <img src="./assets/img/${object.photo}" alt="${object.name}">
+            <div class="card-body">
+                <h4>${object.name}</h4>
+                <span>${object.role}</span>
+            </div>
+        </div>
+    </div>
+    `
+    //assegno ad ogni div l'innerHTML con le info dei membri 
+    DOMel.innerHTML += colMarkup;
+}
