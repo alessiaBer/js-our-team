@@ -84,7 +84,7 @@ function iterateArray(array) {
 function printInDOM(DOMel, object) {
     // aggiungo il markup da stampare in pagina e lo assegno ad una variabile
     const colMarkup =  `
-    <div class="col-12 col-sm-6 col-md-4">
+    <div class="col-12 col-sm-6 col-lg-4">
         <div class="card mb-4 pb-4">
             <img src="./assets/img/${object.photo}" alt="${object.name}">
             <div class="card-body ps-4">
