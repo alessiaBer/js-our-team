@@ -24,6 +24,8 @@ Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg ***/
 
 //selezione l'elemento container della DOM
 const containerEl = document.querySelector('.container');
+//seleziono l'elemento .row della DOM
+const rowEl = document.querySelector('.row');
 
 //creo l'array di oggetti rappresentanti i membri del team
 const team = [
@@ -69,15 +71,22 @@ for (let i = 0; i < team.length; i++) {
     //stampo in console i dati dell'oggetto
     //console.log(`Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`);
 
-    //creo un elemento div nella DOM
-    const memberDiv = document.createElement('div');
+    const colMarkup =  `
+    <div class="col">
+        <div class="card">
+            <img src="./assets/img/${team_member.photo}" alt="${team_member.name}">
+            <div class="card-body">
+                <h4>${team_member.name}</h4>
+                <span>${team_member.role}</span>
+            </div>
+        </div>
+    </div>
+    `
     //assegno ad ogni div l'innerHTML con le info dei membri 
-    memberDiv.innerHTML = `Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`;
+    rowEl.innerHTML += colMarkup;
+} 
 
-    //appendo al container i div creati
-    containerEl.append(memberDiv);
-}
-
-
+//Trasformare la stringa foto in una immagine effettiva
+//Organizzare i singoli membri in card/schede
 
 
