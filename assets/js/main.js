@@ -56,3 +56,13 @@ const team = [
         photo: 'barbara-ramos-graphic-designer.jpg'
     }
 ]
+
+//Stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+//attraverso un for loop ciclo dentro l'array 
+for (let i = 0; i < team.length; i++) {
+    //assegno ad una variabile ogni oggetto dell'array
+    const team_member = team[i];
+    //stampo in console i dati dell'oggetto
+    console.log(`${team_member.name}, ${team_member.role}, ${team_member.photo}`);
+}
+
