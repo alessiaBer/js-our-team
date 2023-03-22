@@ -22,6 +22,8 @@ Angela Lopez	Social Media Manager	angela-lopez-social-media-manager.jpg
 Scott Estrada	Developer	scott-estrada-developer.jpg
 Barbara Ramos	Graphic Designer	barbara-ramos-graphic-designer.jpg ***/
 
+//selezione l'elemento container della DOM
+const containerEl = document.querySelector('.container');
 
 //creo l'array di oggetti rappresentanti i membri del team
 const team = [
@@ -58,11 +60,24 @@ const team = [
 ]
 
 //Stampo su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+//Stampare le stesse informazioni su DOM sottoforma di stringhe
+
 //attraverso un for loop ciclo dentro l'array 
 for (let i = 0; i < team.length; i++) {
     //assegno ad una variabile ogni oggetto dell'array
     const team_member = team[i];
     //stampo in console i dati dell'oggetto
-    console.log(`Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`);
+    //console.log(`Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`);
+
+    //creo un elemento div nella DOM
+    const memberDiv = document.createElement('div');
+    //assegno ad ogni div l'innerHTML con le info dei membri 
+    memberDiv.innerHTML = `Name: ${team_member.name}; Role: ${team_member.role}; Photo: ${team_member.photo}`;
+
+    //appendo al container i div creati
+    containerEl.append(memberDiv);
 }
+
+
+
 
